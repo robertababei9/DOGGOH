@@ -47,6 +47,9 @@
 		DDE68EE62300833A0091C90A /* InfoTableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EE42300833A0091C90A /* InfoTableCollectionCell.swift */; };
 		DDE68EE72300833A0091C90A /* InfoTableCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE68EE52300833A0091C90A /* InfoTableCollectionCell.xib */; };
 		DDE68EE923014CA40091C90A /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EE823014CA40091C90A /* FullScreenImageViewController.swift */; };
+		DDE68EEC23029AAE0091C90A /* DogProfileCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */; };
+		DDE68EED23029AAE0091C90A /* DogProfileCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */; };
+		DDE68EF02302DFF80091C90A /* InfoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EEF2302DFF80091C90A /* InfoTableView.swift */; };
 		F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2AF22F3926700B31D4A /* AppDelegate.swift */; };
 		F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2B122F3926700B31D4A /* InitialViewController.swift */; };
 		F61DD2B522F3926700B31D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61DD2B322F3926700B31D4A /* Main.storyboard */; };
@@ -96,6 +99,9 @@
 		DDE68EE42300833A0091C90A /* InfoTableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableCollectionCell.swift; sourceTree = "<group>"; };
 		DDE68EE52300833A0091C90A /* InfoTableCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableCollectionCell.xib; sourceTree = "<group>"; };
 		DDE68EE823014CA40091C90A /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
+		DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileCollectionCell.swift; sourceTree = "<group>"; };
+		DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogProfileCollectionCell.xib; sourceTree = "<group>"; };
+		DDE68EEF2302DFF80091C90A /* InfoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableView.swift; sourceTree = "<group>"; };
 		F61DD2AC22F3926700B31D4A /* Doggoh-Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doggoh-Starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61DD2AF22F3926700B31D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F61DD2B122F3926700B31D4A /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +193,8 @@
 				DDE68EDF230060350091C90A /* InfoTableCell.xib */,
 				DDE68EE42300833A0091C90A /* InfoTableCollectionCell.swift */,
 				DDE68EE52300833A0091C90A /* InfoTableCollectionCell.xib */,
+				DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */,
+				DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +205,14 @@
 				DDBAD11F22F78E8A00BCCC81 /* QuizCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DDE68EEE2302DF970091C90A /* ComplexViews */ = {
+			isa = PBXGroup;
+			children = (
+				DDE68EEF2302DFF80091C90A /* InfoTableView.swift */,
+			);
+			path = ComplexViews;
 			sourceTree = "<group>";
 		};
 		F61DD2A322F3926700B31D4A = {
@@ -218,6 +234,7 @@
 		F61DD2AE22F3926700B31D4A /* Doggoh-Starter */ = {
 			isa = PBXGroup;
 			children = (
+				DDE68EEE2302DF970091C90A /* ComplexViews */,
 				DDBAD11E22F78E7100BCCC81 /* Coordinator */,
 				DDBAD11922F764E300BCCC81 /* View */,
 				DDBAD11022F5C88F00BCCC81 /* Controller */,
@@ -313,6 +330,7 @@
 				F61DD2B722F3926900B31D4A /* Assets.xcassets in Resources */,
 				DD16807D22FC451300F6F10A /* OpenSans-LightItalic.ttf in Resources */,
 				DDE68EE72300833A0091C90A /* InfoTableCollectionCell.xib in Resources */,
+				DDE68EED23029AAE0091C90A /* DogProfileCollectionCell.xib in Resources */,
 				F61DD2C222F392B600B31D4A /* dog_questions_multiple.json in Resources */,
 				F61DD2B522F3926700B31D4A /* Main.storyboard in Resources */,
 				DD16808322FC451300F6F10A /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -342,6 +360,7 @@
 				DDBAD15722F9B53000BCCC81 /* DogProfileViewController.swift in Sources */,
 				DDE68EE0230060350091C90A /* InfoTableCell.swift in Sources */,
 				F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */,
+				DDE68EEC23029AAE0091C90A /* DogProfileCollectionCell.swift in Sources */,
 				DDE68EE62300833A0091C90A /* InfoTableCollectionCell.swift in Sources */,
 				DDBAD14222F8663D00BCCC81 /* StatementViewController.swift in Sources */,
 				DD16806D22FB496000F6F10A /* DogPool.swift in Sources */,
@@ -351,6 +370,7 @@
 				DDE68EE923014CA40091C90A /* FullScreenImageViewController.swift in Sources */,
 				DD16805E22FB0C2700F6F10A /* DogCell.swift in Sources */,
 				DDBAD11B22F7651000BCCC81 /* AnswerButton.swift in Sources */,
+				DDE68EF02302DFF80091C90A /* InfoTableView.swift in Sources */,
 				DDE68EE3230061D50091C90A /* DogInfoCell.swift in Sources */,
 				DDBAD15522F9B30900BCCC81 /* ImageType.swift in Sources */,
 				DD16808F22FC5CB300F6F10A /* TimelineViewController.swift in Sources */,

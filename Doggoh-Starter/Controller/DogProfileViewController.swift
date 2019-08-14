@@ -21,13 +21,16 @@ class DogProfileViewController: UIViewController {
     
     @IBOutlet var ageButtons: [AnswerButton]!
     @IBOutlet var genderButtons: [AnswerButton]!
-    @IBOutlet var characterButtons: [AnswerButton]!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    //force unwrap because we will made this view
-    var myView: UIView!
-    
+    private let charButtonName: [String] = ["QUIET", "CHERFUL", "ACTIVE", "PLAYFUL", "LOUD", "CURIOUS", "VEARY PEACEFUL", "FRIENDLY"]
+    private var charButtonCounter = 0
     //dict to see which character button is selected
-    private var charBtnSelected = [String?: Bool]()
+    private var indexCharBtnSelected = [IndexPath]()
+    
+    //force unwrap because we will create this view
+    private var myView: UIView!
+    
     private var allDogs: [Dog] = [Dog]()
     
     private var counterPicker: Int = 0
@@ -42,6 +45,14 @@ class DogProfileViewController: UIViewController {
             let pool = DogPool(dict: json)
             allDogs = pool.getDogs()
         }
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "DogProfileCollectionCell", bundle: Bundle.main), forCellWithReuseIdentifier: "DogProfileCollectionCell")
+//        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+////        flowLayout.estimatedItemSize = CGSize(width: 150 , height: 32)
+//        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,12 +68,12 @@ class DogProfileViewController: UIViewController {
         genderButtons.forEach( {
             $0.configure(type: .profileOption)
         })
-        characterButtons.forEach( {
-            $0.configure(type: .profileOption)
-            if let btnLabelText = $0.titleLabel?.text {
-                charBtnSelected[btnLabelText] = false
-            }
-        })
+//        characterButtons.forEach( {
+//            $0.configure(type: .profileOption)
+//            if let btnLabelText = $0.titleLabel?.text {
+//                charBtnSelected[btnLabelText] = false
+//            }
+//        })
         
         selectionButton.layer.cornerRadius = 15
         selectionButton.titleEdgeInsets = UIEdgeInsets(top: 1, left: -50, bottom: 1, right: 1)
@@ -142,20 +153,6 @@ class DogProfileViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func characterButtonClicked(_ sender: AnswerButton) {
-        for button in characterButtons {
-            if sender == button {
-                if charBtnSelected[sender.titleLabel?.text] == false {
-                    button.didSelect(type: .profileOption)
-                    charBtnSelected[sender.titleLabel?.text]?.toggle()
-                } else {
-                    button.didDeselect(type: .profileOption)
-                    charBtnSelected[sender.titleLabel?.text]?.toggle()
-                }
-            }
-        }
-    }
 }
 
 
@@ -183,7 +180,60 @@ extension DogProfileViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return allDogs.count
     }
+}
+
+
+extension DogProfileViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 16, left: 35, bottom: 16, right: 35)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexCharBtnSelected.count < 3 {
+            let cell = collectionView.cellForItem(at: indexPath) as! DogProfileCollectionCell
+            cell.characterButton.didSelect(type: .profileOption)
+            indexCharBtnSelected.append(indexPath)
+        } else {
+            let firstCell = collectionView.cellForItem(at: indexCharBtnSelected[0]) as! DogProfileCollectionCell
+            firstCell.characterButton.didDeselect(type: .profileOption)
+            indexCharBtnSelected.remove(at: 0)
+            
+            let actualCell = collectionView.cellForItem(at: indexPath) as! DogProfileCollectionCell
+            actualCell.characterButton.didSelect(type: .profileOption)
+            indexCharBtnSelected.append(indexPath)
+        }
+    }
+
+}
+
+extension DogProfileViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = (collectionView.frame.size.width - 35 - 35 - 16 - 16) / 3
+        let height: CGFloat = 32
+
+        return CGSize(width: width, height: height)
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return charButtonName.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DogProfileCollectionCell", for: indexPath) as! DogProfileCollectionCell
+        cell.characterButton.setTitle(charButtonName[indexPath.row], for: .normal)
+        cell.configureButton()
+        
+        return cell
+    }
     
     
 }

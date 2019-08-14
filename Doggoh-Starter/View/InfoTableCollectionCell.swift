@@ -30,9 +30,7 @@ class InfoTableCollectionCell: UICollectionViewCell {
     
     @IBAction func fullSreenButtonClicked(_ sender: UIButton) {
         if let unwrappedImage = self.dogImage.image {
-            print("Image unwrapped successfully")
             delegate?.makePhotoFullScreen(dogImage: unwrappedImage)
-            print("IMAGE ========= \(unwrappedImage)")
         }
     }
     

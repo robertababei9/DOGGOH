@@ -101,42 +101,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZy-j3-cvg">
-                                <rect key="frame" x="20" y="116" width="335" height="25"/>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-D1-ldc">
-                                <rect key="frame" x="0.0" y="149" width="375" height="469"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfm-6j-0j7" customClass="InfoTableView" customModule="Doggoh_Starter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhk-fj-gSO">
-                                <rect key="frame" x="23" y="113.5" width="40" height="30"/>
-                                <state key="normal" title="BACK"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="4pW-Xm-Fin" eventType="touchUpInside" id="ZbU-Qs-cS5"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KZy-j3-cvg" firstAttribute="leading" secondItem="Ygg-jY-MHV" secondAttribute="leading" constant="20" id="0qa-59-iFx"/>
-                            <constraint firstItem="6GW-D1-ldc" firstAttribute="trailing" secondItem="Ygg-jY-MHV" secondAttribute="trailing" id="1Wu-0g-cX1"/>
-                            <constraint firstItem="Lhk-fj-gSO" firstAttribute="leading" secondItem="Ygg-jY-MHV" secondAttribute="leading" constant="23" id="5Uq-1m-T2r"/>
-                            <constraint firstItem="6GW-D1-ldc" firstAttribute="top" secondItem="KZy-j3-cvg" secondAttribute="bottom" constant="8" id="DO4-CR-KGy"/>
-                            <constraint firstItem="6GW-D1-ldc" firstAttribute="bottom" secondItem="Ygg-jY-MHV" secondAttribute="bottom" id="GKE-33-m5M"/>
-                            <constraint firstItem="Ygg-jY-MHV" firstAttribute="trailing" secondItem="KZy-j3-cvg" secondAttribute="trailing" constant="20" id="krg-oK-aF9"/>
-                            <constraint firstItem="6GW-D1-ldc" firstAttribute="centerX" secondItem="Ygg-jY-MHV" secondAttribute="centerX" id="n8n-Sj-sJb"/>
-                            <constraint firstItem="Lhk-fj-gSO" firstAttribute="centerY" secondItem="KZy-j3-cvg" secondAttribute="centerY" id="tFK-ha-fh3"/>
-                            <constraint firstItem="KZy-j3-cvg" firstAttribute="top" secondItem="Ygg-jY-MHV" secondAttribute="top" id="uH0-fe-C5O"/>
+                            <constraint firstItem="nfm-6j-0j7" firstAttribute="top" secondItem="Ygg-jY-MHV" secondAttribute="top" id="IZo-oP-G4O"/>
+                            <constraint firstItem="nfm-6j-0j7" firstAttribute="trailing" secondItem="Ygg-jY-MHV" secondAttribute="trailing" id="JMO-d6-LoS"/>
+                            <constraint firstItem="nfm-6j-0j7" firstAttribute="leading" secondItem="Ygg-jY-MHV" secondAttribute="leading" id="eHt-Bs-dAI"/>
+                            <constraint firstItem="nfm-6j-0j7" firstAttribute="bottom" secondItem="Ygg-jY-MHV" secondAttribute="bottom" id="qO9-yW-Y7W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ygg-jY-MHV"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="6GW-D1-ldc" id="xYh-FV-l2N"/>
-                        <outlet property="titleLabel" destination="KZy-j3-cvg" id="FKs-o7-Dcz"/>
+                        <outlet property="infoListView" destination="nfm-6j-0j7" id="xJA-BY-n6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ob2-Xj-8jZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,17 +170,17 @@
             <objects>
                 <viewController id="XCQ-2u-aqc" customClass="DogProfileViewController" customModule="Doggoh_Starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8SB-Lu-DSQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4J-G4-g0H">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1151"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1251"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-l8-6cl">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog_profile_test2" translatesAutoresizingMaskIntoConstraints="NO" id="dsj-Fe-l8V">
-                                                <rect key="frame" x="16" y="48" width="343" height="441.00000000000011"/>
+                                                <rect key="frame" x="16" y="48" width="343" height="441"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="441" id="e4B-f7-eVa"/>
                                                 </constraints>
@@ -209,7 +189,7 @@
                                                 <rect key="frame" x="16" y="449" width="343" height="131"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wilkinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQm-hW-vlo">
-                                                        <rect key="frame" x="19" y="16" width="305" height="37"/>
+                                                        <rect key="frame" x="19" y="16" width="305" height="35"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -240,7 +220,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some info on Wilkinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-z2-QVG">
-                                                <rect key="frame" x="35" y="628" width="214" height="16"/>
+                                                <rect key="frame" x="35" y="628" width="189.5" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="o63-ID-Uj1"/>
                                                 </constraints>
@@ -252,13 +232,13 @@
                                                 <rect key="frame" x="35" y="676" width="305" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U62-nb-Z2K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njo-6G-Lvw" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="183" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="183" y="0.0" width="30" height="29"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                         <state key="normal" title="&lt;1"/>
                                                         <connections>
@@ -266,7 +246,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohI-7o-XqX" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="229" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="229" y="0.0" width="30" height="29"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                         <state key="normal" title="1-2"/>
                                                         <connections>
@@ -274,7 +254,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIH-Xw-5Hj" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="275" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="275" y="0.0" width="30" height="29"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                         <state key="normal" title="2+"/>
                                                         <connections>
@@ -306,13 +286,13 @@
                                                 <rect key="frame" x="35" y="765" width="305" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpY-Fk-PNe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="79" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFA-3S-nlA" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="188" y="0.0" width="42" height="30"/>
+                                                        <rect key="frame" x="196" y="0.0" width="38" height="29"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                         <state key="normal" title="MALE"/>
                                                         <connections>
@@ -320,7 +300,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTT-OG-ED8" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="246" y="0.0" width="59" height="30"/>
+                                                        <rect key="frame" x="250" y="0.0" width="55" height="29"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                         <state key="normal" title="FEMALE"/>
                                                         <connections>
@@ -347,103 +327,23 @@
                                                     <constraint firstAttribute="height" constant="2" id="dtt-M1-iuI"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-PS-Opt" userLabel="Character view">
-                                                <rect key="frame" x="35" y="862" width="305" height="180"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHARACTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFm-bv-udk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="22"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srg-HF-9WZ" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="35" y="38" width="45" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="QUIET"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="050-PB-Qid"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f7-5H-Nrk" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="96" y="38" width="77" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="CHEERFUL"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="daT-Nx-d8Y"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOB-bl-zJM" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="189" y="38" width="53" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="ACTIVE"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="azC-nj-xNy"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iju-Sn-8Sl" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="35" y="84" width="64" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="PLAYFUL"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="aTS-eZ-h4a"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW1-J1-i8a" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="115" y="84" width="42" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="LOUD"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="pvH-HS-6fy"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsE-Lq-fIA" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="173" y="84" width="67" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="CURIOUS"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="hZx-Ub-Ilp"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG6-Rt-cfT" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="35" y="130" width="76" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="PEACEFUL"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="AVQ-eA-TD4"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouy-K6-zT7" customClass="AnswerButton" customModule="Doggoh_Starter" customModuleProvider="target">
-                                                        <rect key="frame" x="127" y="130" width="71" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                        <state key="normal" title="FRIENDLY"/>
-                                                        <connections>
-                                                            <action selector="characterButtonClicked:" destination="XCQ-2u-aqc" eventType="touchUpInside" id="2VN-dR-6AL"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHARACTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM3-WK-vjD">
+                                                <rect key="frame" x="35" y="862" width="108.5" height="21"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YY9-9C-etN">
+                                                <rect key="frame" x="0.0" y="899" width="375" height="201"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="9f7-5H-Nrk" firstAttribute="centerY" secondItem="srg-HF-9WZ" secondAttribute="centerY" id="23n-uu-O8c"/>
-                                                    <constraint firstItem="Ouy-K6-zT7" firstAttribute="leading" secondItem="tG6-Rt-cfT" secondAttribute="trailing" constant="16" id="4Ak-XQ-KGw"/>
-                                                    <constraint firstItem="srg-HF-9WZ" firstAttribute="top" secondItem="FFm-bv-udk" secondAttribute="bottom" constant="16" id="DrM-35-sqm"/>
-                                                    <constraint firstItem="sW1-J1-i8a" firstAttribute="leading" secondItem="iju-Sn-8Sl" secondAttribute="trailing" constant="16" id="FZC-Ue-GNT"/>
-                                                    <constraint firstAttribute="height" constant="180" id="GXD-q0-7jM"/>
-                                                    <constraint firstItem="tG6-Rt-cfT" firstAttribute="top" secondItem="iju-Sn-8Sl" secondAttribute="bottom" constant="16" id="HrK-Tw-ynC"/>
-                                                    <constraint firstItem="Ouy-K6-zT7" firstAttribute="centerY" secondItem="tG6-Rt-cfT" secondAttribute="centerY" id="K8w-rf-Z6X"/>
-                                                    <constraint firstItem="FOB-bl-zJM" firstAttribute="centerY" secondItem="srg-HF-9WZ" secondAttribute="centerY" id="Kg6-fV-52d"/>
-                                                    <constraint firstItem="BsE-Lq-fIA" firstAttribute="leading" secondItem="sW1-J1-i8a" secondAttribute="trailing" constant="16" id="MEZ-MB-BYm"/>
-                                                    <constraint firstItem="iju-Sn-8Sl" firstAttribute="top" secondItem="srg-HF-9WZ" secondAttribute="bottom" constant="16" id="XFY-ha-2dA"/>
-                                                    <constraint firstItem="tG6-Rt-cfT" firstAttribute="leading" secondItem="eSp-PS-Opt" secondAttribute="leading" constant="35" id="bu5-PA-iAk"/>
-                                                    <constraint firstItem="FOB-bl-zJM" firstAttribute="leading" secondItem="9f7-5H-Nrk" secondAttribute="trailing" constant="16" id="dAT-V5-nUo"/>
-                                                    <constraint firstItem="sW1-J1-i8a" firstAttribute="centerY" secondItem="iju-Sn-8Sl" secondAttribute="centerY" id="dup-Fq-Hrq"/>
-                                                    <constraint firstItem="9f7-5H-Nrk" firstAttribute="leading" secondItem="srg-HF-9WZ" secondAttribute="trailing" constant="16" id="eB1-Zl-xIX"/>
-                                                    <constraint firstItem="FFm-bv-udk" firstAttribute="top" secondItem="eSp-PS-Opt" secondAttribute="top" id="krX-Kw-tHV"/>
-                                                    <constraint firstItem="iju-Sn-8Sl" firstAttribute="leading" secondItem="eSp-PS-Opt" secondAttribute="leading" constant="35" id="pnZ-jc-TtL"/>
-                                                    <constraint firstItem="srg-HF-9WZ" firstAttribute="leading" secondItem="eSp-PS-Opt" secondAttribute="leading" constant="35" id="q2o-N8-a4L"/>
-                                                    <constraint firstItem="BsE-Lq-fIA" firstAttribute="centerY" secondItem="iju-Sn-8Sl" secondAttribute="centerY" id="rcK-MC-VBP"/>
-                                                    <constraint firstItem="FFm-bv-udk" firstAttribute="leading" secondItem="eSp-PS-Opt" secondAttribute="leading" id="ydv-Eh-Va3"/>
-                                                </constraints>
-                                            </view>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tbZ-mw-xOV">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -451,23 +351,26 @@
                                             <constraint firstAttribute="trailing" secondItem="3RC-QM-itv" secondAttribute="trailing" id="3Vi-IE-Qvg"/>
                                             <constraint firstItem="C8T-IV-D5V" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="89" id="3XI-yb-fbz"/>
                                             <constraint firstItem="j6c-fm-tX7" firstAttribute="top" secondItem="dsj-Fe-l8V" secondAttribute="bottom" constant="-40" id="8Wn-eg-khy"/>
-                                            <constraint firstItem="eSp-PS-Opt" firstAttribute="top" secondItem="3RC-QM-itv" secondAttribute="bottom" constant="40" id="8fI-EO-ZOj"/>
-                                            <constraint firstItem="eSp-PS-Opt" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="35" id="B32-kZ-WlQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="YY9-9C-etN" secondAttribute="bottom" id="8ca-yr-iqQ"/>
                                             <constraint firstItem="1Kt-sK-TYy" firstAttribute="top" secondItem="C8T-IV-D5V" secondAttribute="bottom" constant="32" id="EL5-r8-h75"/>
                                             <constraint firstItem="hO7-z2-QVG" firstAttribute="top" secondItem="j6c-fm-tX7" secondAttribute="bottom" constant="48" id="Gh3-y7-JSf"/>
                                             <constraint firstItem="dsj-Fe-l8V" firstAttribute="top" secondItem="Utv-l8-6cl" secondAttribute="top" constant="48" id="Ntz-Bv-R9e"/>
                                             <constraint firstItem="3RC-QM-itv" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="89" id="OBs-xw-aPh"/>
                                             <constraint firstAttribute="trailing" secondItem="C8T-IV-D5V" secondAttribute="trailing" id="PLT-0B-X4I"/>
-                                            <constraint firstAttribute="trailing" secondItem="eSp-PS-Opt" secondAttribute="trailing" constant="35" id="XoD-k1-uNS"/>
+                                            <constraint firstItem="YY9-9C-etN" firstAttribute="top" secondItem="yM3-WK-vjD" secondAttribute="bottom" constant="16" id="USQ-0R-AT4"/>
                                             <constraint firstItem="hO7-z2-QVG" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="35" id="YAm-al-Whs"/>
                                             <constraint firstAttribute="height" constant="1100" id="b4Y-PW-wfs"/>
                                             <constraint firstAttribute="trailing" secondItem="XXf-ne-8cy" secondAttribute="trailing" constant="35" id="bt3-cw-XmO"/>
+                                            <constraint firstItem="yM3-WK-vjD" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="35" id="cNp-wz-KWD"/>
                                             <constraint firstItem="1Kt-sK-TYy" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="35" id="gje-Qf-iZH"/>
                                             <constraint firstItem="XXf-ne-8cy" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="35" id="iLH-LN-6hU"/>
+                                            <constraint firstAttribute="trailing" secondItem="YY9-9C-etN" secondAttribute="trailing" id="iy8-Yp-JCK"/>
                                             <constraint firstItem="3RC-QM-itv" firstAttribute="top" secondItem="1Kt-sK-TYy" secondAttribute="bottom" constant="15" id="p5i-V8-567"/>
                                             <constraint firstAttribute="trailing" secondItem="1Kt-sK-TYy" secondAttribute="trailing" constant="35" id="rbG-Ja-GAm"/>
                                             <constraint firstItem="C8T-IV-D5V" firstAttribute="top" secondItem="XXf-ne-8cy" secondAttribute="bottom" constant="15" id="rqg-U6-pPQ"/>
                                             <constraint firstItem="j6c-fm-tX7" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" constant="16" id="s9b-vI-NgW"/>
+                                            <constraint firstItem="yM3-WK-vjD" firstAttribute="top" secondItem="3RC-QM-itv" secondAttribute="bottom" constant="40" id="tq9-PW-EEg"/>
+                                            <constraint firstItem="YY9-9C-etN" firstAttribute="leading" secondItem="Utv-l8-6cl" secondAttribute="leading" id="uSK-JO-0Ix"/>
                                             <constraint firstItem="XXf-ne-8cy" firstAttribute="top" secondItem="hO7-z2-QVG" secondAttribute="bottom" constant="32" id="x1k-Uv-y2x"/>
                                             <constraint firstAttribute="trailing" secondItem="j6c-fm-tX7" secondAttribute="trailing" constant="16" id="x8G-vj-kCY"/>
                                             <constraint firstAttribute="trailing" secondItem="dsj-Fe-l8V" secondAttribute="trailing" constant="16" id="xaU-N9-Ctm"/>
@@ -493,9 +396,10 @@
                         <viewLayoutGuide key="safeArea" id="LiB-v0-UbL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="paw" id="MU7-Nb-3jb"/>
-                    <size key="freeformSize" width="375" height="1200"/>
+                    <size key="freeformSize" width="375" height="1300"/>
                     <connections>
                         <outlet property="breedNameLabel" destination="wQm-hW-vlo" id="IfA-QQ-jep"/>
+                        <outlet property="collectionView" destination="YY9-9C-etN" id="5wV-Sm-1fw"/>
                         <outlet property="infoLabel" destination="hO7-z2-QVG" id="eSL-Yg-mX9"/>
                         <outlet property="profileImage" destination="dsj-Fe-l8V" id="jH3-9D-yIn"/>
                         <outlet property="scrollView" destination="j4J-G4-g0H" id="n9Y-9L-L8C"/>
@@ -506,14 +410,6 @@
                         <outletCollection property="ageButtons" destination="Njo-6G-Lvw" collectionClass="NSMutableArray" id="qKW-Rk-U97"/>
                         <outletCollection property="ageButtons" destination="ohI-7o-XqX" collectionClass="NSMutableArray" id="Kky-iM-Bsa"/>
                         <outletCollection property="ageButtons" destination="dIH-Xw-5Hj" collectionClass="NSMutableArray" id="AH3-4l-A2G"/>
-                        <outletCollection property="characterButtons" destination="srg-HF-9WZ" collectionClass="NSMutableArray" id="Hvm-Eb-GZB"/>
-                        <outletCollection property="characterButtons" destination="9f7-5H-Nrk" collectionClass="NSMutableArray" id="gyn-KW-of6"/>
-                        <outletCollection property="characterButtons" destination="FOB-bl-zJM" collectionClass="NSMutableArray" id="5Y8-RX-zFQ"/>
-                        <outletCollection property="characterButtons" destination="iju-Sn-8Sl" collectionClass="NSMutableArray" id="QfS-qr-tuj"/>
-                        <outletCollection property="characterButtons" destination="sW1-J1-i8a" collectionClass="NSMutableArray" id="o7A-X6-aRC"/>
-                        <outletCollection property="characterButtons" destination="BsE-Lq-fIA" collectionClass="NSMutableArray" id="x9s-gX-vvj"/>
-                        <outletCollection property="characterButtons" destination="tG6-Rt-cfT" collectionClass="NSMutableArray" id="BFy-fo-wLi"/>
-                        <outletCollection property="characterButtons" destination="Ouy-K6-zT7" collectionClass="NSMutableArray" id="dmm-tc-MX1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MyJ-ev-gef" userLabel="First Responder" sceneMemberID="firstResponder"/>
