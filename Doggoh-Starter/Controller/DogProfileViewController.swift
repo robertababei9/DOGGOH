@@ -115,17 +115,17 @@ class DogProfileViewController: UIViewController {
     
     @objc func cancelBtnClicked() {
         myView.removeFromSuperview()
-        breedNameLabel.text = dogBeforeCancel?.dogRace
+        breedNameLabel.text = dogBeforeCancel?.breed
         breedNameLabel.alpha = 1
         counterPicker = 0
     }
     
     @objc func doneBtnClicked() {
-        selectionButton.setTitle(selectedRow.dogRace, for: .normal)
+        selectionButton.setTitle(selectedRow.breed, for: .normal)
         profileImage.image = selectedRow.dogImage
-        breedNameLabel.text = selectedRow.dogRace
+        breedNameLabel.text = selectedRow.breed
         breedNameLabel.alpha = 1
-        infoLabel.text = "Some info on \(selectedRow.dogRace)"
+        infoLabel.text = "Some info on \(selectedRow.breed)"
         myView.removeFromSuperview()
         counterPicker = 0
         
@@ -160,7 +160,7 @@ extension DogProfileViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("Component = \(component) --- row = \(row)")
         selectedRow = allDogs[row]
-        breedNameLabel.text = allDogs[row].dogRace
+        breedNameLabel.text = allDogs[row].breed
         breedNameLabel.alpha = 0.5
     }
     
@@ -170,7 +170,7 @@ extension DogProfileViewController: UIPickerViewDelegate {
 extension DogProfileViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return allDogs[row].dogRace
+        return allDogs[row].breed
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

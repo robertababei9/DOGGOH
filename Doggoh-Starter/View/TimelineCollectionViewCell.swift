@@ -16,7 +16,7 @@ class TimelineCollectionViewCell: UICollectionViewCell {
     
     var dog: Dog! {
         didSet {
-            dogNameLabel.text = dog.dogRace
+            dogNameLabel.text = dog.breed
         }
     }
     

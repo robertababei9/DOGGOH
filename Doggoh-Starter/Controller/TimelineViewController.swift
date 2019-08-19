@@ -13,6 +13,8 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var gradientView: UIView!
     
+    let apiClient = DogAPIClient.sharedInstance
+    
     let edgeInset: CGFloat = 16
     
     var allDogs = [Dog]()
@@ -35,6 +37,16 @@ class TimelineViewController: UIViewController {
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
+        
+//        apiClient.getAllDogs { result in
+//            switch result {
+//            case .success(let allDogs):
+//                self.allDogs = allDogs
+//                print("getting dogs")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     fileprivate func addGradientView() {
@@ -83,10 +95,11 @@ extension TimelineViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimelineCollectionViewCell", for: indexPath) as! TimelineCollectionViewCell
         
-        let dog = Dog(dogRace: allDogs[indexPath.row].dogRace, dogs: allDogs[indexPath.row].dogs)
+        let dog = Dog(dogRace: allDogs[indexPath.row].breed, dogs: allDogs[indexPath.row].subBreed)
         cell.dog = dog
         cell.setDogImage(dogImage: dog.dogImage!)
         
+        print("CELS")
         return cell
     }
 }

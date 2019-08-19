@@ -12,7 +12,12 @@ class DogTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let apiClient = DogAPIClient.sharedInstance
+    
     var allDogs: [Dog] = [Dog]()
+    
+    var auxImg: UIImage?
+    let imageCache = NSCache<NSString, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +26,31 @@ class DogTableViewController: UIViewController {
         
         tableView.rowHeight = 86
         
-        if let json = DogRepository.getDataFromJSON(withName: DogRepository.fileNameDogTypes) {
-            let pool = DogPool(dict: json)
-            allDogs = pool.getDogs()
+//        if let json = DogRepository.getDataFromJSON(withName: DogRepository.fileNameDogTypes) {
+//            let pool = DogPool(dict: json)
+//            //allDogs = pool.getDogs()
+//        }
+        
+        apiClient.getAllDogs { result in
+            switch result {
+            case .success(let allDogs):
+                self.allDogs = allDogs
+//                self.getImageForDogs()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
         
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-    
 }
 
 
@@ -52,7 +70,7 @@ extension DogTableViewController: UITableViewDelegate, UITableViewDataSource {
         // ARATA INGROZITOR
         // ARATA INGROZITOR
         // ARATA INGROZITOR
-        if allDogs[section].dogs.count > 0 {
+        if allDogs[section].subBreed.count > 0 {
             let myView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: headerHeight + 80))
             
             let delimiterLineView = UIView(frame: CGRect(x: paddingLeading, y: 0, width: tableView.bounds.width - paddingLeading, height: 3))
@@ -60,7 +78,7 @@ extension DogTableViewController: UITableViewDelegate, UITableViewDataSource {
             myView.addSubview(delimiterLineView)
             
             let label = UILabel(frame: CGRect(x: paddingLeading, y: 20, width: tableView.bounds.width - paddingLeading, height: headerHeight))
-            label.text = allDogs[section].dogRace.uppercased()
+            label.text = allDogs[section].breed.uppercased()
             label.backgroundColor = .white
             label.font = UIFont(name: "Montserrat-Bold", size: 16)
             label.textAlignment = .left
@@ -81,17 +99,17 @@ extension DogTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return allDogs[section].dogs.count > 0 ? tableView.rowHeight / 2 : tableView.rowHeight / 4
+        return allDogs[section].subBreed.count > 0 ? tableView.rowHeight / 2 : tableView.rowHeight / 4
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return allDogs[section].dogRace
+        return allDogs[section].breed
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // if there is no dog => keep 1 cell just for race
-        return allDogs[section].dogs.count > 0 ? allDogs[section].dogs.count : 1
+        return allDogs[section].subBreed.count > 0 ? allDogs[section].subBreed.count : 1
     }
     
     
@@ -99,16 +117,66 @@ extension DogTableViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DogCell", for: indexPath) as! DogCell
         let rnd = Int.random(in: 0...22)
-        
         //
-        if allDogs[indexPath.section].dogs.count > 0 {
-            cell.setDogCell(dogRace: allDogs[indexPath.section].dogs[indexPath.row] , dogImage: UIImage(named: "\(rnd)")!)
+        if allDogs[indexPath.section].subBreed.count > 0 {
+            
+            if let cachedImage = imageCache.object(forKey: self.allDogs[indexPath.section].subBreed[indexPath.row] as NSString) {
+                cell.setDogCell(dogRace: self.allDogs[indexPath.section].subBreed[indexPath.row] , dogImage: cachedImage)
+            }
+            else {
+                apiClient.getImageBySubBreed(breedName: allDogs[indexPath.section].breed, subBreedName: allDogs[indexPath.section].subBreed[indexPath.row]) { result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success(let image):
+                        //print(image)
+                        let imageUrl = image.imageURL
+                        do {
+                            let data = try Data(contentsOf: URL(string: imageUrl)!)
+                            let img = UIImage(data: data)
+                            DispatchQueue.main.async {
+                                self.imageCache.setObject(img!, forKey: self.allDogs[indexPath.section].subBreed[indexPath.row] as NSString)
+                                cell.setDogCell(dogRace: self.allDogs[indexPath.section].subBreed[indexPath.row] , dogImage: img!)
+                            }
+                        }
+                        catch let error{
+                            print(error)
+                        }
+                    }
+                }
+            }
             cell.dogNameLabel.font = UIFont(name: "Montserrat-Regular", size: 14)
         } else {
-            cell.setDogCell(dogRace: allDogs[indexPath.section].dogRace.uppercased() , dogImage: UIImage(named: "\(rnd)")!)
+            if let cachedImage = imageCache.object(forKey: allDogs[indexPath.section].breed as NSString) {
+                cell.setDogCell(dogRace: self.allDogs[indexPath.section].breed.uppercased() , dogImage: cachedImage)
+            }
+            else {
+                apiClient.getImageByBreed(breedName: allDogs[indexPath.section].breed) { result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success(let image):
+                        //print(image)
+                        let imageUrl = image.imageURL
+                        do {
+                            let data = try Data(contentsOf: URL(string: imageUrl)!)
+                            let img = UIImage(data: data)
+                            DispatchQueue.main.async {
+                                self.imageCache.setObject(img!, forKey: self.allDogs[indexPath.section].breed as NSString)
+                                cell.setDogCell(dogRace: self.allDogs[indexPath.section].breed.uppercased() , dogImage: img!)
+                            }
+                        }
+                        catch let error{
+                            print(error)
+                        }
+                    }
+                }
+            }
+           // cell.setDogCell(dogRace: allDogs[indexPath.section].breed.uppercased() , dogImage: img!)
             cell.dogNameLabel.font = UIFont(name: "Montserrat-Bold", size: 16)
         }
-        
         return cell
     }
     

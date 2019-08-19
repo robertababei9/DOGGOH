@@ -10,13 +10,13 @@ import UIKit
 import Foundation
 
 class Dog {
-    var dogRace: String
-    var dogs: [String]
+    var breed: String
+    var subBreed: [String]
     var dogImage: UIImage?
     
     init(dogRace: String, dogs: [String]) {
-        self.dogRace = dogRace
-        self.dogs = dogs
+        self.breed = dogRace
+        self.subBreed = dogs
         let rnd = Int.random(in: 0...22)
         dogImage = UIImage(named: "\(rnd)")
     }

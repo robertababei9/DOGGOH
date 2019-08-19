@@ -50,6 +50,12 @@
 		DDE68EEC23029AAE0091C90A /* DogProfileCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */; };
 		DDE68EED23029AAE0091C90A /* DogProfileCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */; };
 		DDE68EF02302DFF80091C90A /* InfoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EEF2302DFF80091C90A /* InfoTableView.swift */; };
+		DDE68EF2230434E90091C90A /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EF1230434E90091C90A /* ImageListView.swift */; };
+		DDE68F13230ABAAF0091C90A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F12230ABAAF0091C90A /* NetworkManager.swift */; };
+		DDE68F15230ABDD40091C90A /* DogAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F14230ABDD40091C90A /* DogAPIClient.swift */; };
+		DDE68F17230AC3A20091C90A /* AllDogsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F16230AC3A20091C90A /* AllDogsResponse.swift */; };
+		DDE68F19230AD3830091C90A /* SubBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F18230AD3830091C90A /* SubBreed.swift */; };
+		DDE68F1B230ADBE20091C90A /* DogImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F1A230ADBE20091C90A /* DogImageURL.swift */; };
 		F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2AF22F3926700B31D4A /* AppDelegate.swift */; };
 		F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2B122F3926700B31D4A /* InitialViewController.swift */; };
 		F61DD2B522F3926700B31D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61DD2B322F3926700B31D4A /* Main.storyboard */; };
@@ -102,6 +108,12 @@
 		DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileCollectionCell.swift; sourceTree = "<group>"; };
 		DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogProfileCollectionCell.xib; sourceTree = "<group>"; };
 		DDE68EEF2302DFF80091C90A /* InfoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableView.swift; sourceTree = "<group>"; };
+		DDE68EF1230434E90091C90A /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
+		DDE68F12230ABAAF0091C90A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DDE68F14230ABDD40091C90A /* DogAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIClient.swift; sourceTree = "<group>"; };
+		DDE68F16230AC3A20091C90A /* AllDogsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDogsResponse.swift; sourceTree = "<group>"; };
+		DDE68F18230AD3830091C90A /* SubBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreed.swift; sourceTree = "<group>"; };
+		DDE68F1A230ADBE20091C90A /* DogImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageURL.swift; sourceTree = "<group>"; };
 		F61DD2AC22F3926700B31D4A /* Doggoh-Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doggoh-Starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61DD2AF22F3926700B31D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F61DD2B122F3926700B31D4A /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -164,11 +176,14 @@
 			isa = PBXGroup;
 			children = (
 				DD16806A22FB3BE200F6F10A /* Dog.swift */,
+				DDE68F18230AD3830091C90A /* SubBreed.swift */,
 				DD16806C22FB496000F6F10A /* DogPool.swift */,
 				DD16805C22FB0C2700F6F10A /* DogCell.swift */,
 				DDE68EE2230061D50091C90A /* DogInfoCell.swift */,
 				DDBAD11222F6F3CD00BCCC81 /* Statement.swift */,
 				DDBAD11422F6F53800BCCC81 /* StatementPool.swift */,
+				DDE68F16230AC3A20091C90A /* AllDogsResponse.swift */,
+				DDE68F1A230ADBE20091C90A /* DogImageURL.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,8 +226,18 @@
 			isa = PBXGroup;
 			children = (
 				DDE68EEF2302DFF80091C90A /* InfoTableView.swift */,
+				DDE68EF1230434E90091C90A /* ImageListView.swift */,
 			);
 			path = ComplexViews;
+			sourceTree = "<group>";
+		};
+		DDE68F11230ABA740091C90A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DDE68F12230ABAAF0091C90A /* NetworkManager.swift */,
+				DDE68F14230ABDD40091C90A /* DogAPIClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F61DD2A322F3926700B31D4A = {
@@ -239,6 +264,7 @@
 				DDBAD11922F764E300BCCC81 /* View */,
 				DDBAD11022F5C88F00BCCC81 /* Controller */,
 				DDBAD11122F6F3B300BCCC81 /* Model */,
+				DDE68F11230ABA740091C90A /* Network */,
 				DDBAD11622F6FB8500BCCC81 /* DogRepository */,
 				F6693CCC22F4973600CD3720 /* Resources */,
 				F61DD2AF22F3926700B31D4A /* AppDelegate.swift */,
@@ -352,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE68F1B230ADBE20091C90A /* DogImageURL.swift in Sources */,
+				DDE68F13230ABAAF0091C90A /* NetworkManager.swift in Sources */,
 				DD16805722FAFDB500F6F10A /* DogTableViewController.swift in Sources */,
 				DDBAD11322F6F3CD00BCCC81 /* Statement.swift in Sources */,
 				DDBAD11522F6F53800BCCC81 /* StatementPool.swift in Sources */,
@@ -362,15 +390,19 @@
 				F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */,
 				DDE68EEC23029AAE0091C90A /* DogProfileCollectionCell.swift in Sources */,
 				DDE68EE62300833A0091C90A /* InfoTableCollectionCell.swift in Sources */,
+				DDE68EF2230434E90091C90A /* ImageListView.swift in Sources */,
 				DDBAD14222F8663D00BCCC81 /* StatementViewController.swift in Sources */,
 				DD16806D22FB496000F6F10A /* DogPool.swift in Sources */,
 				F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */,
 				DD16806B22FB3BE200F6F10A /* Dog.swift in Sources */,
 				DDE68EDD23004AAF0091C90A /* InfoTableViewController.swift in Sources */,
+				DDE68F19230AD3830091C90A /* SubBreed.swift in Sources */,
 				DDE68EE923014CA40091C90A /* FullScreenImageViewController.swift in Sources */,
 				DD16805E22FB0C2700F6F10A /* DogCell.swift in Sources */,
 				DDBAD11B22F7651000BCCC81 /* AnswerButton.swift in Sources */,
+				DDE68F15230ABDD40091C90A /* DogAPIClient.swift in Sources */,
 				DDE68EF02302DFF80091C90A /* InfoTableView.swift in Sources */,
+				DDE68F17230AC3A20091C90A /* AllDogsResponse.swift in Sources */,
 				DDE68EE3230061D50091C90A /* DogInfoCell.swift in Sources */,
 				DDBAD15522F9B30900BCCC81 /* ImageType.swift in Sources */,
 				DD16808F22FC5CB300F6F10A /* TimelineViewController.swift in Sources */,

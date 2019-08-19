@@ -17,6 +17,9 @@ class InfoTableCollectionCell: UICollectionViewCell {
     @IBOutlet weak var dogImage: UIImageView!
     @IBOutlet weak var fullScreenButton: UIButton!
     
+    @IBOutlet weak var contentWidthCn: NSLayoutConstraint!
+    @IBOutlet weak var contentHeightCn: NSLayoutConstraint!
+    
     var delegate: InfoTableCollectionCellDelegate?
     
     func setImage(image: UIImage) {
@@ -32,6 +35,20 @@ class InfoTableCollectionCell: UICollectionViewCell {
         if let unwrappedImage = self.dogImage.image {
             delegate?.makePhotoFullScreen(dogImage: unwrappedImage)
         }
+    }
+    
+    func scaleContent(nr: CGFloat) {
+        let scaledWidth = nr * bounds.width
+        let scaledHeight = nr * bounds.height
+        
+        contentWidthCn.constant = -scaledWidth
+        contentHeightCn.constant = -scaledHeight
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentWidthCn.constant = 0
+        contentHeightCn.constant = 0
     }
     
     
