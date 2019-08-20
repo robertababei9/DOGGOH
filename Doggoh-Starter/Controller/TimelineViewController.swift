@@ -14,6 +14,7 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var gradientView: UIView!
     
     let apiClient = DogAPIClient.sharedInstance
+    var imageCache = NSCache<NSString, UIImage>()
     
     let edgeInset: CGFloat = 16
     
@@ -24,29 +25,31 @@ class TimelineViewController: UIViewController {
         
         addGradientView()
 
-        if let json = DogRepository.getDataFromJSON(withName: DogRepository.fileNameDogTypes) {
-            let pool = DogPool(dict: json)
-            allDogs = pool.getDogs()
-            
+//        if let json = DogRepository.getDataFromJSON(withName: DogRepository.fileNameDogTypes) {
+//            let pool = DogPool(dict: json)
+////            allDogs = pool.getDogs()
+        
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.register(UINib(nibName: "TimelineCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TimelineCollectionViewCell")
             
-        }
         
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
         
-//        apiClient.getAllDogs { result in
-//            switch result {
-//            case .success(let allDogs):
-//                self.allDogs = allDogs
-//                print("getting dogs")
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        //geting dogs from url
+        apiClient.getAllDogs { result in
+            switch result {
+            case .success(let allDogs):
+                self.allDogs = allDogs
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     fileprivate func addGradientView() {
@@ -97,9 +100,32 @@ extension TimelineViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         let dog = Dog(dogRace: allDogs[indexPath.row].breed, dogs: allDogs[indexPath.row].subBreed)
         cell.dog = dog
-        cell.setDogImage(dogImage: dog.dogImage!)
         
-        print("CELS")
+        if let cachedImage = imageCache.object(forKey: allDogs[indexPath.row].breed as NSString) {
+            cell.setDogImage(dogImage: cachedImage)
+        }
+        else {
+            apiClient.getImageByBreed(breedName: allDogs[indexPath.row].breed) { result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let image):
+                    let imageUrl = image.imageURL
+                    do {
+                        let data = try Data(contentsOf: URL(string: imageUrl)!)
+                        DispatchQueue.main.async {
+                            let img = UIImage(data: data)
+                            cell.setDogImage(dogImage: img!)
+                            self.imageCache.setObject(img!, forKey: self.allDogs[indexPath.row].breed as NSString)
+                        }
+                    }
+                    catch let error {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 }

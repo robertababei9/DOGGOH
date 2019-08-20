@@ -13,6 +13,8 @@ enum DogAPI {
     case allDogs
     case randomBreedImage(String)
     case randomSubbreedImage(String, String)
+    case randomDogImages(Int)
+    case randomBreedMultipleImages(String, Int)
 }
 
 extension DogAPI {
@@ -24,6 +26,10 @@ extension DogAPI {
             return "breed/\(breedName)/images/random"
         case .randomSubbreedImage(let breedName, let subBreedName):
             return "breed/\(breedName)/\(subBreedName)/images/random"
+        case .randomDogImages(let nr):
+            return "breeds/image/random/\(nr)"
+        case .randomBreedMultipleImages(let breedName, let nr):
+            return "breed/\(breedName)/images/random/\(nr)"
         }
     }
 }
@@ -58,6 +64,45 @@ class DogAPIClient {
                 }
             }
         }
+    }
+    
+    func getMultipleRandomImages(_ completion: @escaping ((Result<MultipleDogImageURL,NetworkError>) -> Void)) {
+        let url = URL(string: "\(baseURL)\(DogAPI.randomDogImages(30).endpoint)")!
+        let networkManager = NetworkManager(url: url)
+        networkManager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                do {
+                    let images = try JSONDecoder().decode(MultipleDogImageURL.self, from: data)
+                    completion(.success(images))
+                }
+                catch {
+                    completion(.failure(.decodingError))
+                }
+            }
+        }
+    }
+    
+    func getRandomImagesByBreed(breedName: String, nrOfImages: Int, _ completion: @escaping ((Result<MultipleDogImageURL, NetworkError>)-> Void)) {
+        let url = URL(string: "\(baseURL)\(DogAPI.randomBreedMultipleImages(breedName, nrOfImages).endpoint)")!
+        let networkManager = NetworkManager(url: url)
+        networkManager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                do {
+                    let images = try JSONDecoder().decode(MultipleDogImageURL.self, from: data)
+                    completion(.success(images))
+                }
+                catch {
+                    completion(.failure(.decodingError))
+                }
+            }
+        }
+
     }
     
     func getImageByBreed(breedName: String, _ completion: @escaping ((Result<DogImageURL, NetworkError>) -> Void)) {

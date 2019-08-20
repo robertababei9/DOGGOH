@@ -25,17 +25,12 @@ class DogTableViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = 86
-        
-//        if let json = DogRepository.getDataFromJSON(withName: DogRepository.fileNameDogTypes) {
-//            let pool = DogPool(dict: json)
-//            //allDogs = pool.getDogs()
-//        }
+
         
         apiClient.getAllDogs { result in
             switch result {
             case .success(let allDogs):
                 self.allDogs = allDogs
-//                self.getImageForDogs()
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -44,7 +39,7 @@ class DogTableViewController: UIViewController {
             }
         }
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,8 +111,7 @@ extension DogTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DogCell", for: indexPath) as! DogCell
-        let rnd = Int.random(in: 0...22)
-        //
+        
         if allDogs[indexPath.section].subBreed.count > 0 {
             
             if let cachedImage = imageCache.object(forKey: self.allDogs[indexPath.section].subBreed[indexPath.row] as NSString) {

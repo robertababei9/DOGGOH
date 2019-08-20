@@ -12,6 +12,8 @@ class InfoTableViewController: UIViewController {
 
     @IBOutlet weak var infoListView: InfoTableView!
     
+    let apiClient = DogAPIClient.sharedInstance
+    var activityIndicator = UIActivityIndicatorView()
     
     var dogReceived: Dog?
     var dogTitle: String = ""
@@ -22,10 +24,12 @@ class InfoTableViewController: UIViewController {
         InfoTableView.Info(title: "ABOUT", description: "BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA")
     ]
     
-    var testImage: [UIImage] = [
-        UIImage(named: "4")!, UIImage(named: "11")!, UIImage(named: "17")!, UIImage(named: "19")!,
-        UIImage(named: "12")!, UIImage(named: "21")!, UIImage(named: "1")!, UIImage(named: "22")!
-    ]
+//    var testImage: [UIImage] = [
+//        UIImage(named: "4")!, UIImage(named: "11")!, UIImage(named: "17")!, UIImage(named: "19")!,
+//        UIImage(named: "12")!, UIImage(named: "21")!, UIImage(named: "1")!, UIImage(named: "22")!
+//    ]
+    
+    var testImage: [UIImage] = []
     
     var tableHeaderView: UIView!
     var pageController: UIPageControl!
@@ -34,7 +38,40 @@ class InfoTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dogTitle = dogReceived?.breed.uppercased() ?? "Nil value"
-        tableHeaderView = createViewForHeader()        
+//        tableHeaderView = createViewForHeader()
+        configActivityIndicator()
+        
+        // LOADING UNTIL DATA IS RETRIVED
+        let whiteView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        whiteView.backgroundColor = .white
+        view.addSubview(whiteView)
+        view.insertSubview(whiteView, belowSubview: activityIndicator)
+        showActivityIndicatory()
+        ///
+        
+        apiClient.getRandomImagesByBreed(breedName: dogReceived?.breed ?? "Shiba", nrOfImages: 10) { result in
+            switch result {
+            case .success(let images):
+                let imagesUrl = images.randomDogImages
+                DispatchQueue.main.async {
+                    for url in imagesUrl {
+                        do {
+                            let data = try Data(contentsOf: URL(string: url)!)
+                            self.testImage.append(UIImage(data: data)!)
+                        }
+                        catch let error {
+                            print(error)
+                        }
+                    }
+                    self.tableHeaderView = self.createViewForHeader()
+                    self.infoListView.displayInfoList(infoArray: self.infoDogList, withHeader: self.tableHeaderView)
+                    whiteView.removeFromSuperview()
+                }
+            case .failure(let error):
+                print(error)
+            }
+            self.hideActivityIndicatory()
+        }
         
     }
     
@@ -47,12 +84,8 @@ class InfoTableViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         
-        infoListView.displayInfoList(infoArray: infoDogList, withHeader: tableHeaderView)
+//        infoListView.displayInfoList(infoArray: infoDogList, withHeader: tableHeaderView)
     }
-    
-//    @IBAction func backButtonPressed(_ sender: UIButton) {
-//        navigationController?.popViewController(animated: true)
-//    }
     
     
     func createViewForHeader() -> UIView {
@@ -64,6 +97,24 @@ class InfoTableViewController: UIViewController {
         return imageListView
         
         //
+    }
+    
+    private func configActivityIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .gray
+        view.addSubview(activityIndicator)
+//        view.bringSubviewToFront(activityIndicator)
+    }
+    
+    private func showActivityIndicatory() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicatory() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
     }
 
 }
