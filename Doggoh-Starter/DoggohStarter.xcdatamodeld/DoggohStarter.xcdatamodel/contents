@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DogModel" representedClassName="DogModel" syncable="YES">
+        <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="subBreed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubBreedModel" syncable="YES"/>
+    </entity>
+    <entity name="SubBreedModel" representedClassName="SubBreedModel" syncable="YES">
+        <attribute name="breedName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DogModel" positionX="-149.48828125" positionY="-26.484375" width="128" height="88"/>
+        <element name="SubBreedModel" positionX="175.765625" positionY="3.15625" width="128" height="88"/>
+    </elements>
+</model>

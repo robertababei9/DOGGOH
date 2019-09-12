@@ -20,9 +20,9 @@ class PinterestLayout: UICollectionViewFlowLayout {
     private var numberOfColumns = 2
     private var cellPadding: CGFloat = 8
     
-    private var cache = [UICollectionViewLayoutAttributes]()
+    var cache = [UICollectionViewLayoutAttributes]()
     
-    private var contentHeight: CGFloat = 0
+    var contentHeight: CGFloat = 0
     
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
@@ -38,6 +38,9 @@ class PinterestLayout: UICollectionViewFlowLayout {
     }
     
     override func prepare() {
+//        super.prepare()
+//        cache = [UICollectionViewLayoutAttributes]()
+//        cache.removeAll()
         // 1. Only calculate once
         guard cache.isEmpty == true, let collectionView = collectionView else {
             return
@@ -76,7 +79,6 @@ class PinterestLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         var visibleLayoutAttributes = [UICollectionViewLayoutAttributes]()
         
         // Loop through the cache and look for items in the rect

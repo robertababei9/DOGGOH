@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 class SubBreed {
-    var name: String?
-    var image: UIImage?
+    var name: String
+    var imageData: Data?
     
-    init(name: String, image: UIImage) {
+    init(name: String, imageData: Data?) {
         self.name = name
-        self.image = image
+        self.imageData = imageData
+    }
+    
+    func setImageWithData(data: Data) {
+        imageData = data
     }
 }

@@ -12,6 +12,8 @@ class InfoTableViewController: UIViewController {
 
     @IBOutlet weak var infoListView: InfoTableView!
     
+    var imageListView: ImageListView!
+    
     let apiClient = DogAPIClient.sharedInstance
     var activityIndicator = UIActivityIndicatorView()
     
@@ -38,37 +40,33 @@ class InfoTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dogTitle = dogReceived?.breed.uppercased() ?? "Nil value"
-//        tableHeaderView = createViewForHeader()
-        configActivityIndicator()
         
-        // LOADING UNTIL DATA IS RETRIVED
-        let whiteView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        whiteView.backgroundColor = .white
-        view.addSubview(whiteView)
-        view.insertSubview(whiteView, belowSubview: activityIndicator)
+        self.tableHeaderView = self.createViewForHeader()
+        self.infoListView.displayInfoList(infoArray: self.infoDogList, withHeader: self.tableHeaderView)
+        
+        configActivityIndicator()
         showActivityIndicatory()
-        ///
         
         apiClient.getRandomImagesByBreed(breedName: dogReceived?.breed ?? "Shiba", nrOfImages: 10) { result in
             switch result {
             case .success(let images):
                 let imagesUrl = images.randomDogImages
-                DispatchQueue.main.async {
-                    for url in imagesUrl {
-                        do {
-                            let data = try Data(contentsOf: URL(string: url)!)
-                            self.testImage.append(UIImage(data: data)!)
-                        }
-                        catch let error {
-                            print(error)
-                        }
+                
+                for url in imagesUrl {
+                    do {
+                        let data = try Data(contentsOf: URL(string: url)!)
+                        self.testImage.append(UIImage(data: data)!)
                     }
-                    self.tableHeaderView = self.createViewForHeader()
-                    self.infoListView.displayInfoList(infoArray: self.infoDogList, withHeader: self.tableHeaderView)
-                    whiteView.removeFromSuperview()
+                    catch let error {
+                        print(error)
+                    }
                 }
+                //                    whiteView.removeFromSuperview()
             case .failure(let error):
                 print(error)
+            }
+            DispatchQueue.main.async {
+                self.imageListView.reloadDataForCollection(with: self.testImage)
             }
             self.hideActivityIndicatory()
         }
@@ -83,14 +81,13 @@ class InfoTableViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        
-//        infoListView.displayInfoList(infoArray: infoDogList, withHeader: tableHeaderView)
+        print("viewWillAppear")
     }
     
     
     func createViewForHeader() -> UIView {
         
-        let imageListView: ImageListView = ImageListView(frame:  CGRect(x: 0, y: 0, width: infoListView.frame.width, height: 400))
+        imageListView = ImageListView(frame: CGRect(x: 0, y: 0, width: infoListView.frame.width, height: 400))
         
         imageListView.delegate = self
         imageListView.setupWith(imageArray: testImage, title: dogTitle)
@@ -100,7 +97,7 @@ class InfoTableViewController: UIViewController {
     }
     
     private func configActivityIndicator() {
-        activityIndicator.center = view.center
+        activityIndicator.center = imageListView.collectionView.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .gray
         view.addSubview(activityIndicator)

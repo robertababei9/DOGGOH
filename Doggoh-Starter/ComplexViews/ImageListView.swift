@@ -49,7 +49,7 @@ class ImageListView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 320)
-        
+        print("Layout subViews")
         myPageController?.frame = CGRect(x: 0, y: 330, width: self.bounds.width, height: 20)
         myLabel?.frame = CGRect(x: 20, y: 360, width: self.bounds.width, height: 20)
 //        backgroundColor = .blue
@@ -60,6 +60,7 @@ class ImageListView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
+        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 320)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -72,14 +73,16 @@ class ImageListView: UIView {
         
         myLabel = UILabel(frame: .zero)
         myLabel?.font = UIFont(name: "Montserrat-Light", size: 18)
-        
-//        myPageController?.backgroundColor = .red
-////        myLabel?.backgroundColor = .green
-//        collectionView.backgroundColor = .blue
 
         addSubview(myPageController!)
         addSubview(myLabel!)
         
+    }
+    
+    func reloadDataForCollection(with newImages: [UIImage]) {
+        testImage = newImages
+        myPageController?.numberOfPages = testImage.count
+        collectionView.reloadData()
     }
     
 }

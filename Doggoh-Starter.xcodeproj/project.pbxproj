@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		836D2EB042C613D34FF661D7 /* Pods_Doggoh_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E80E270B373E8BEBB2D418 /* Pods_Doggoh_Starter.framework */; };
 		DD16805722FAFDB500F6F10A /* DogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16805622FAFDB500F6F10A /* DogTableViewController.swift */; };
 		DD16805E22FB0C2700F6F10A /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16805C22FB0C2700F6F10A /* DogCell.swift */; };
 		DD16806922FB151B00F6F10A /* dog_types.json in Resources */ = {isa = PBXBuildFile; fileRef = DD16806822FB151B00F6F10A /* dog_types.json */; };
@@ -31,6 +32,14 @@
 		DD16809322FC5D6D00F6F10A /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16809122FC5D6D00F6F10A /* TimelineCollectionViewCell.swift */; };
 		DD16809422FC5D6D00F6F10A /* TimelineCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD16809222FC5D6D00F6F10A /* TimelineCollectionViewCell.xib */; };
 		DD1680B822FDA4CD00F6F10A /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1680B722FDA4CD00F6F10A /* PinterestLayout.swift */; };
+		DD22DFE62326456500749031 /* DogTableViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22DFE52326456500749031 /* DogTableViewModelTest.swift */; };
+		DD22DFE923278A7600749031 /* DogPoolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22DFE823278A7600749031 /* DogPoolTest.swift */; };
+		DD83DC112317BFF6005DDDA4 /* DoggohStarter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC0F2317BFF6005DDDA4 /* DoggohStarter.xcdatamodeld */; };
+		DD83DC242317D2B0005DDDA4 /* CoreDataOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC232317D2B0005DDDA4 /* CoreDataOperations.swift */; };
+		DD83DC2B23180936005DDDA4 /* DogModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC2723180935005DDDA4 /* DogModel+CoreDataClass.swift */; };
+		DD83DC2C23180936005DDDA4 /* SubBreedModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC2923180936005DDDA4 /* SubBreedModel+CoreDataProperties.swift */; };
+		DD83DC2D23180936005DDDA4 /* DogModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC2823180935005DDDA4 /* DogModel+CoreDataProperties.swift */; };
+		DD83DC2E23180936005DDDA4 /* SubBreedModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83DC2A23180936005DDDA4 /* SubBreedModel+CoreDataClass.swift */; };
 		DDBAD11322F6F3CD00BCCC81 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD11222F6F3CD00BCCC81 /* Statement.swift */; };
 		DDBAD11522F6F53800BCCC81 /* StatementPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD11422F6F53800BCCC81 /* StatementPool.swift */; };
 		DDBAD11822F6FBB400BCCC81 /* DogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD11722F6FBB400BCCC81 /* DogRepository.swift */; };
@@ -38,7 +47,6 @@
 		DDBAD14222F8663D00BCCC81 /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD11C22F76D8D00BCCC81 /* StatementViewController.swift */; };
 		DDBAD14C22F8771500BCCC81 /* QuizCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD11F22F78E8A00BCCC81 /* QuizCoordinator.swift */; };
 		DDBAD14D22F8778000BCCC81 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD14622F8758300BCCC81 /* ResultViewController.swift */; };
-		DDBAD15522F9B30900BCCC81 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD15422F9B30900BCCC81 /* ImageType.swift */; };
 		DDBAD15722F9B53000BCCC81 /* DogProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD15622F9B53000BCCC81 /* DogProfileViewController.swift */; };
 		DDE68EDD23004AAF0091C90A /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EDC23004AAF0091C90A /* InfoTableViewController.swift */; };
 		DDE68EE0230060350091C90A /* InfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68EDE230060350091C90A /* InfoTableCell.swift */; };
@@ -57,6 +65,19 @@
 		DDE68F19230AD3830091C90A /* SubBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F18230AD3830091C90A /* SubBreed.swift */; };
 		DDE68F1B230ADBE20091C90A /* DogImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F1A230ADBE20091C90A /* DogImageURL.swift */; };
 		DDE68F1D230B3AEA0091C90A /* MultipleDogImagesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F1C230B3AEA0091C90A /* MultipleDogImagesURL.swift */; };
+		DDE68F87230EBDE60091C90A /* NetworkWithAlamo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68F86230EBDE60091C90A /* NetworkWithAlamo.swift */; };
+		DDE68FA3230FF6C10091C90A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE68FA2230FF6C10091C90A /* NotificationCenter.framework */; };
+		DDE68FA6230FF6C10091C90A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE68FA5230FF6C10091C90A /* TodayViewController.swift */; };
+		DDE68FA9230FF6C10091C90A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE68FA7230FF6C10091C90A /* MainInterface.storyboard */; };
+		DDE68FAD230FF6C10091C90A /* TodayDoggie.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DDE68FA1230FF6C00091C90A /* TodayDoggie.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DDE68FB3230FFCB20091C90A /* testUrl.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDE68FB2230FFCB20091C90A /* testUrl.txt */; };
+		DDEDEDD1231EA40200DD3B3B /* DogTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDD0231EA40200DD3B3B /* DogTableViewHeader.swift */; };
+		DDEDEDD6231FA3CF00DD3B3B /* TimelineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDD5231FA3CF00DD3B3B /* TimelineCellViewModel.swift */; };
+		DDEDEDD9231FA6F100DD3B3B /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDD8231FA6F100DD3B3B /* TimelineViewModel.swift */; };
+		DDEDEDDB2321195000DD3B3B /* DogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDDA2321195000DD3B3B /* DogCellViewModel.swift */; };
+		DDEDEDDD23211BAD00DD3B3B /* DogTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDDC23211BAD00DD3B3B /* DogTableViewModel.swift */; };
+		DDEDEDE523223F7800DD3B3B /* Doggoh_StarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDE423223F7800DD3B3B /* Doggoh_StarterTests.swift */; };
+		DDEDEDED2322405100DD3B3B /* TimelineViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDEDEC2322405100DD3B3B /* TimelineViewModelTest.swift */; };
 		F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2AF22F3926700B31D4A /* AppDelegate.swift */; };
 		F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD2B122F3926700B31D4A /* InitialViewController.swift */; };
 		F61DD2B522F3926700B31D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61DD2B322F3926700B31D4A /* Main.storyboard */; };
@@ -65,7 +86,41 @@
 		F61DD2C222F392B600B31D4A /* dog_questions_multiple.json in Resources */ = {isa = PBXBuildFile; fileRef = F61DD2C122F392B600B31D4A /* dog_questions_multiple.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DDE68FAB230FF6C10091C90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F61DD2A422F3926700B31D4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDE68FA0230FF6C00091C90A;
+			remoteInfo = TodayDoggie;
+		};
+		DDEDEDE723223F7800DD3B3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F61DD2A422F3926700B31D4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F61DD2AB22F3926700B31D4A;
+			remoteInfo = "Doggoh-Starter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDE68FB1230FF6C10091C90A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DDE68FAD230FF6C10091C90A /* TodayDoggie.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1FC947AAF9DEA78D813B8860 /* Pods-Doggoh-Starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggoh-Starter.release.xcconfig"; path = "Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter.release.xcconfig"; sourceTree = "<group>"; };
+		29E80E270B373E8BEBB2D418 /* Pods_Doggoh_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Doggoh_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8644C50EE8D692A700C07C83 /* Pods-Doggoh-Starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggoh-Starter.debug.xcconfig"; path = "Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter.debug.xcconfig"; sourceTree = "<group>"; };
 		DD16805622FAFDB500F6F10A /* DogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewController.swift; sourceTree = "<group>"; };
 		DD16805C22FB0C2700F6F10A /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		DD16806822FB151B00F6F10A /* dog_types.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dog_types.json; sourceTree = "<group>"; };
@@ -90,6 +145,14 @@
 		DD16809122FC5D6D00F6F10A /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD16809222FC5D6D00F6F10A /* TimelineCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineCollectionViewCell.xib; sourceTree = "<group>"; };
 		DD1680B722FDA4CD00F6F10A /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		DD22DFE52326456500749031 /* DogTableViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewModelTest.swift; sourceTree = "<group>"; };
+		DD22DFE823278A7600749031 /* DogPoolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPoolTest.swift; sourceTree = "<group>"; };
+		DD83DC102317BFF6005DDDA4 /* DoggohStarter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DoggohStarter.xcdatamodel; sourceTree = "<group>"; };
+		DD83DC232317D2B0005DDDA4 /* CoreDataOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataOperations.swift; sourceTree = "<group>"; };
+		DD83DC2723180935005DDDA4 /* DogModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogModel+CoreDataClass.swift"; path = "/Users/robertababei/Downloads/Doggoh-Starter 3/Doggoh-Starter/CoreDataModel/DogModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		DD83DC2823180935005DDDA4 /* DogModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogModel+CoreDataProperties.swift"; path = "/Users/robertababei/Downloads/Doggoh-Starter 3/Doggoh-Starter/CoreDataModel/DogModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DD83DC2923180936005DDDA4 /* SubBreedModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubBreedModel+CoreDataProperties.swift"; path = "/Users/robertababei/Downloads/Doggoh-Starter 3/Doggoh-Starter/CoreDataModel/SubBreedModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DD83DC2A23180936005DDDA4 /* SubBreedModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubBreedModel+CoreDataClass.swift"; path = "/Users/robertababei/Downloads/Doggoh-Starter 3/Doggoh-Starter/CoreDataModel/SubBreedModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		DDBAD11222F6F3CD00BCCC81 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		DDBAD11422F6F53800BCCC81 /* StatementPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementPool.swift; sourceTree = "<group>"; };
 		DDBAD11722F6FBB400BCCC81 /* DogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRepository.swift; sourceTree = "<group>"; };
@@ -97,7 +160,6 @@
 		DDBAD11C22F76D8D00BCCC81 /* StatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewController.swift; sourceTree = "<group>"; };
 		DDBAD11F22F78E8A00BCCC81 /* QuizCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCoordinator.swift; sourceTree = "<group>"; };
 		DDBAD14622F8758300BCCC81 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		DDBAD15422F9B30900BCCC81 /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		DDBAD15622F9B53000BCCC81 /* DogProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileViewController.swift; sourceTree = "<group>"; };
 		DDE68EDC23004AAF0091C90A /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		DDE68EDE230060350091C90A /* InfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableCell.swift; sourceTree = "<group>"; };
@@ -116,6 +178,24 @@
 		DDE68F18230AD3830091C90A /* SubBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreed.swift; sourceTree = "<group>"; };
 		DDE68F1A230ADBE20091C90A /* DogImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageURL.swift; sourceTree = "<group>"; };
 		DDE68F1C230B3AEA0091C90A /* MultipleDogImagesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleDogImagesURL.swift; sourceTree = "<group>"; };
+		DDE68F86230EBDE60091C90A /* NetworkWithAlamo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWithAlamo.swift; sourceTree = "<group>"; };
+		DDE68FA1230FF6C00091C90A /* TodayDoggie.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayDoggie.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE68FA2230FF6C10091C90A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		DDE68FA5230FF6C10091C90A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DDE68FA8230FF6C10091C90A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DDE68FAA230FF6C10091C90A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE68FB2230FFCB20091C90A /* testUrl.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = testUrl.txt; sourceTree = "<group>"; };
+		DDE68FB4231000040091C90A /* Doggoh-Starter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Doggoh-Starter.entitlements"; sourceTree = "<group>"; };
+		DDE68FB5231000910091C90A /* TodayDoggie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayDoggie.entitlements; sourceTree = "<group>"; };
+		DDEDEDD0231EA40200DD3B3B /* DogTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewHeader.swift; sourceTree = "<group>"; };
+		DDEDEDD5231FA3CF00DD3B3B /* TimelineCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellViewModel.swift; sourceTree = "<group>"; };
+		DDEDEDD8231FA6F100DD3B3B /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		DDEDEDDA2321195000DD3B3B /* DogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCellViewModel.swift; sourceTree = "<group>"; };
+		DDEDEDDC23211BAD00DD3B3B /* DogTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewModel.swift; sourceTree = "<group>"; };
+		DDEDEDE223223F7700DD3B3B /* Doggoh-StarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Doggoh-StarterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEDEDE423223F7800DD3B3B /* Doggoh_StarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doggoh_StarterTests.swift; sourceTree = "<group>"; };
+		DDEDEDE623223F7800DD3B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEDEDEC2322405100DD3B3B /* TimelineViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModelTest.swift; sourceTree = "<group>"; };
 		F61DD2AC22F3926700B31D4A /* Doggoh-Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doggoh-Starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61DD2AF22F3926700B31D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F61DD2B122F3926700B31D4A /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -127,16 +207,50 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F61DD2A922F3926700B31D4A /* Frameworks */ = {
+		DDE68F9E230FF6C00091C90A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDE68FA3230FF6C10091C90A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEDEDDF23223F7700DD3B3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F61DD2A922F3926700B31D4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				836D2EB042C613D34FF661D7 /* Pods_Doggoh_Starter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BBD688EBF45A22ACFFA4DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29E80E270B373E8BEBB2D418 /* Pods_Doggoh_Starter.framework */,
+				DDE68FA2230FF6C10091C90A /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		322C2D281DBD6DE64AF07F45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8644C50EE8D692A700C07C83 /* Pods-Doggoh-Starter.debug.xcconfig */,
+				1FC947AAF9DEA78D813B8860 /* Pods-Doggoh-Starter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DD16808822FC456600F6F10A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +273,27 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		DD22DFE72326AD9100749031 /* CellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDEDEDD5231FA3CF00DD3B3B /* TimelineCellViewModel.swift */,
+				DDEDEDDA2321195000DD3B3B /* DogCellViewModel.swift */,
+			);
+			path = CellViewModel;
+			sourceTree = "<group>";
+		};
+		DD83DC122317C404005DDDA4 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD83DC2A23180936005DDDA4 /* SubBreedModel+CoreDataClass.swift */,
+				DD83DC2923180936005DDDA4 /* SubBreedModel+CoreDataProperties.swift */,
+				DD83DC2723180935005DDDA4 /* DogModel+CoreDataClass.swift */,
+				DD83DC2823180935005DDDA4 /* DogModel+CoreDataProperties.swift */,
+				DD83DC232317D2B0005DDDA4 /* CoreDataOperations.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		DDBAD11022F5C88F00BCCC81 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,16 +312,13 @@
 		DDBAD11122F6F3B300BCCC81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD16806A22FB3BE200F6F10A /* Dog.swift */,
-				DDE68F18230AD3830091C90A /* SubBreed.swift */,
+				DDEDEDD4231F996400DD3B3B /* DogModel */,
 				DD16806C22FB496000F6F10A /* DogPool.swift */,
-				DD16805C22FB0C2700F6F10A /* DogCell.swift */,
 				DDE68EE2230061D50091C90A /* DogInfoCell.swift */,
-				DDBAD11222F6F3CD00BCCC81 /* Statement.swift */,
-				DDBAD11422F6F53800BCCC81 /* StatementPool.swift */,
 				DDE68F16230AC3A20091C90A /* AllDogsResponse.swift */,
 				DDE68F1A230ADBE20091C90A /* DogImageURL.swift */,
 				DDE68F1C230B3AEA0091C90A /* MultipleDogImagesURL.swift */,
+				DDEDEDCF231E889A00DD3B3B /* QuizzModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,16 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				DDBAD11A22F7651000BCCC81 /* AnswerButton.swift */,
-				DDBAD15422F9B30900BCCC81 /* ImageType.swift */,
-				DD16809122FC5D6D00F6F10A /* TimelineCollectionViewCell.swift */,
-				DD16809222FC5D6D00F6F10A /* TimelineCollectionViewCell.xib */,
 				DD1680B722FDA4CD00F6F10A /* PinterestLayout.swift */,
-				DDE68EDE230060350091C90A /* InfoTableCell.swift */,
-				DDE68EDF230060350091C90A /* InfoTableCell.xib */,
-				DDE68EE42300833A0091C90A /* InfoTableCollectionCell.swift */,
-				DDE68EE52300833A0091C90A /* InfoTableCollectionCell.xib */,
-				DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */,
-				DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */,
+				DDEDEDD3231EA68500DD3B3B /* CellsView */,
+				DDEDEDD2231EA66500DD3B3B /* TableHeaderView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,15 +364,95 @@
 			children = (
 				DDE68F12230ABAAF0091C90A /* NetworkManager.swift */,
 				DDE68F14230ABDD40091C90A /* DogAPIClient.swift */,
+				DDE68F86230EBDE60091C90A /* NetworkWithAlamo.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DDE68FA4230FF6C10091C90A /* TodayDoggie */ = {
+			isa = PBXGroup;
+			children = (
+				DDE68FB5231000910091C90A /* TodayDoggie.entitlements */,
+				DDE68FA5230FF6C10091C90A /* TodayViewController.swift */,
+				DDE68FA7230FF6C10091C90A /* MainInterface.storyboard */,
+				DDE68FAA230FF6C10091C90A /* Info.plist */,
+			);
+			path = TodayDoggie;
+			sourceTree = "<group>";
+		};
+		DDEDEDCF231E889A00DD3B3B /* QuizzModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDBAD11222F6F3CD00BCCC81 /* Statement.swift */,
+				DDBAD11422F6F53800BCCC81 /* StatementPool.swift */,
+			);
+			path = QuizzModel;
+			sourceTree = "<group>";
+		};
+		DDEDEDD2231EA66500DD3B3B /* TableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				DDEDEDD0231EA40200DD3B3B /* DogTableViewHeader.swift */,
+			);
+			path = TableHeaderView;
+			sourceTree = "<group>";
+		};
+		DDEDEDD3231EA68500DD3B3B /* CellsView */ = {
+			isa = PBXGroup;
+			children = (
+				DDE68EDE230060350091C90A /* InfoTableCell.swift */,
+				DDE68EDF230060350091C90A /* InfoTableCell.xib */,
+				DD16809122FC5D6D00F6F10A /* TimelineCollectionViewCell.swift */,
+				DD16809222FC5D6D00F6F10A /* TimelineCollectionViewCell.xib */,
+				DDE68EE42300833A0091C90A /* InfoTableCollectionCell.swift */,
+				DDE68EE52300833A0091C90A /* InfoTableCollectionCell.xib */,
+				DDE68EEA23029AAE0091C90A /* DogProfileCollectionCell.swift */,
+				DDE68EEB23029AAE0091C90A /* DogProfileCollectionCell.xib */,
+				DD16805C22FB0C2700F6F10A /* DogCell.swift */,
+			);
+			path = CellsView;
+			sourceTree = "<group>";
+		};
+		DDEDEDD4231F996400DD3B3B /* DogModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD16806A22FB3BE200F6F10A /* Dog.swift */,
+				DDE68F18230AD3830091C90A /* SubBreed.swift */,
+			);
+			path = DogModel;
+			sourceTree = "<group>";
+		};
+		DDEDEDD7231FA3DB00DD3B3B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DDEDEDD8231FA6F100DD3B3B /* TimelineViewModel.swift */,
+				DDEDEDDC23211BAD00DD3B3B /* DogTableViewModel.swift */,
+				DD22DFE72326AD9100749031 /* CellViewModel */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DDEDEDE323223F7800DD3B3B /* Doggoh-StarterTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDEDEDE423223F7800DD3B3B /* Doggoh_StarterTests.swift */,
+				DDEDEDE623223F7800DD3B3B /* Info.plist */,
+				DDEDEDEC2322405100DD3B3B /* TimelineViewModelTest.swift */,
+				DD22DFE52326456500749031 /* DogTableViewModelTest.swift */,
+				DD22DFE823278A7600749031 /* DogPoolTest.swift */,
+			);
+			path = "Doggoh-StarterTests";
 			sourceTree = "<group>";
 		};
 		F61DD2A322F3926700B31D4A = {
 			isa = PBXGroup;
 			children = (
 				F61DD2AE22F3926700B31D4A /* Doggoh-Starter */,
+				DDE68FA4230FF6C10091C90A /* TodayDoggie */,
+				DDEDEDE323223F7800DD3B3B /* Doggoh-StarterTests */,
 				F61DD2AD22F3926700B31D4A /* Products */,
+				322C2D281DBD6DE64AF07F45 /* Pods */,
+				0BBD688EBF45A22ACFFA4DF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,6 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				F61DD2AC22F3926700B31D4A /* Doggoh-Starter.app */,
+				DDE68FA1230FF6C00091C90A /* TodayDoggie.appex */,
+				DDEDEDE223223F7700DD3B3B /* Doggoh-StarterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,10 +469,13 @@
 		F61DD2AE22F3926700B31D4A /* Doggoh-Starter */ = {
 			isa = PBXGroup;
 			children = (
+				DDE68FB4231000040091C90A /* Doggoh-Starter.entitlements */,
 				DDE68EEE2302DF970091C90A /* ComplexViews */,
 				DDBAD11E22F78E7100BCCC81 /* Coordinator */,
+				DDEDEDD7231FA3DB00DD3B3B /* ViewModels */,
 				DDBAD11922F764E300BCCC81 /* View */,
 				DDBAD11022F5C88F00BCCC81 /* Controller */,
+				DD83DC122317C404005DDDA4 /* CoreDataModel */,
 				DDBAD11122F6F3B300BCCC81 /* Model */,
 				DDE68F11230ABA740091C90A /* Network */,
 				DDBAD11622F6FB8500BCCC81 /* DogRepository */,
@@ -277,6 +487,8 @@
 				F61DD2BB22F3926900B31D4A /* Info.plist */,
 				DD16806822FB151B00F6F10A /* dog_types.json */,
 				F61DD2C122F392B600B31D4A /* dog_questions_multiple.json */,
+				DDE68FB2230FFCB20091C90A /* testUrl.txt */,
+				DD83DC0F2317BFF6005DDDA4 /* DoggohStarter.xcdatamodeld */,
 			);
 			path = "Doggoh-Starter";
 			sourceTree = "<group>";
@@ -292,17 +504,56 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F61DD2AB22F3926700B31D4A /* Doggoh-Starter */ = {
+		DDE68FA0230FF6C00091C90A /* TodayDoggie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F61DD2BE22F3926900B31D4A /* Build configuration list for PBXNativeTarget "Doggoh-Starter" */;
+			buildConfigurationList = DDE68FAE230FF6C10091C90A /* Build configuration list for PBXNativeTarget "TodayDoggie" */;
 			buildPhases = (
-				F61DD2A822F3926700B31D4A /* Sources */,
-				F61DD2A922F3926700B31D4A /* Frameworks */,
-				F61DD2AA22F3926700B31D4A /* Resources */,
+				DDE68F9D230FF6C00091C90A /* Sources */,
+				DDE68F9E230FF6C00091C90A /* Frameworks */,
+				DDE68F9F230FF6C00091C90A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = TodayDoggie;
+			productName = TodayDoggie;
+			productReference = DDE68FA1230FF6C00091C90A /* TodayDoggie.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DDEDEDE123223F7700DD3B3B /* Doggoh-StarterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEDEDEB23223F7800DD3B3B /* Build configuration list for PBXNativeTarget "Doggoh-StarterTests" */;
+			buildPhases = (
+				DDEDEDDE23223F7700DD3B3B /* Sources */,
+				DDEDEDDF23223F7700DD3B3B /* Frameworks */,
+				DDEDEDE023223F7700DD3B3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDEDEDE823223F7800DD3B3B /* PBXTargetDependency */,
+			);
+			name = "Doggoh-StarterTests";
+			productName = "Doggoh-StarterTests";
+			productReference = DDEDEDE223223F7700DD3B3B /* Doggoh-StarterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F61DD2AB22F3926700B31D4A /* Doggoh-Starter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F61DD2BE22F3926900B31D4A /* Build configuration list for PBXNativeTarget "Doggoh-Starter" */;
+			buildPhases = (
+				D417DFE758527465A4E1EF32 /* [CP] Check Pods Manifest.lock */,
+				F61DD2A822F3926700B31D4A /* Sources */,
+				F61DD2A922F3926700B31D4A /* Frameworks */,
+				F61DD2AA22F3926700B31D4A /* Resources */,
+				7C8E3E0C6982283644AD08FA /* [CP] Embed Pods Frameworks */,
+				DDE68FB1230FF6C10091C90A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDE68FAC230FF6C10091C90A /* PBXTargetDependency */,
 			);
 			name = "Doggoh-Starter";
 			productName = "Doggoh-Starter";
@@ -319,8 +570,25 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Endava Internship 2019";
 				TargetAttributes = {
+					DDE68FA0230FF6C00091C90A = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					DDEDEDE123223F7700DD3B3B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F61DD2AB22F3926700B31D4A;
+					};
 					F61DD2AB22F3926700B31D4A = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -338,11 +606,28 @@
 			projectRoot = "";
 			targets = (
 				F61DD2AB22F3926700B31D4A /* Doggoh-Starter */,
+				DDE68FA0230FF6C00091C90A /* TodayDoggie */,
+				DDEDEDE123223F7700DD3B3B /* Doggoh-StarterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DDE68F9F230FF6C00091C90A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDE68FA9230FF6C10091C90A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEDEDE023223F7700DD3B3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F61DD2AA22F3926700B31D4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +644,7 @@
 				F61DD2B722F3926900B31D4A /* Assets.xcassets in Resources */,
 				DD16807D22FC451300F6F10A /* OpenSans-LightItalic.ttf in Resources */,
 				DDE68EE72300833A0091C90A /* InfoTableCollectionCell.xib in Resources */,
+				DDE68FB3230FFCB20091C90A /* testUrl.txt in Resources */,
 				DDE68EED23029AAE0091C90A /* DogProfileCollectionCell.xib in Resources */,
 				F61DD2C222F392B600B31D4A /* dog_questions_multiple.json in Resources */,
 				F61DD2B522F3926700B31D4A /* Main.storyboard in Resources */,
@@ -376,14 +662,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C8E3E0C6982283644AD08FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D417DFE758527465A4E1EF32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Doggoh-Starter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		DDE68F9D230FF6C00091C90A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDE68FA6230FF6C10091C90A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEDEDDE23223F7700DD3B3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD22DFE923278A7600749031 /* DogPoolTest.swift in Sources */,
+				DDEDEDE523223F7800DD3B3B /* Doggoh_StarterTests.swift in Sources */,
+				DD22DFE62326456500749031 /* DogTableViewModelTest.swift in Sources */,
+				DDEDEDED2322405100DD3B3B /* TimelineViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F61DD2A822F3926700B31D4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DDE68F1B230ADBE20091C90A /* DogImageURL.swift in Sources */,
+				DDEDEDD9231FA6F100DD3B3B /* TimelineViewModel.swift in Sources */,
+				DDEDEDD1231EA40200DD3B3B /* DogTableViewHeader.swift in Sources */,
 				DDE68F13230ABAAF0091C90A /* NetworkManager.swift in Sources */,
+				DDE68F87230EBDE60091C90A /* NetworkWithAlamo.swift in Sources */,
 				DD16805722FAFDB500F6F10A /* DogTableViewController.swift in Sources */,
+				DD83DC242317D2B0005DDDA4 /* CoreDataOperations.swift in Sources */,
 				DDBAD11322F6F3CD00BCCC81 /* Statement.swift in Sources */,
 				DDE68F1D230B3AEA0091C90A /* MultipleDogImagesURL.swift in Sources */,
 				DDBAD11522F6F53800BCCC81 /* StatementPool.swift in Sources */,
@@ -393,14 +744,20 @@
 				DDE68EE0230060350091C90A /* InfoTableCell.swift in Sources */,
 				F61DD2B222F3926700B31D4A /* InitialViewController.swift in Sources */,
 				DDE68EEC23029AAE0091C90A /* DogProfileCollectionCell.swift in Sources */,
+				DD83DC2B23180936005DDDA4 /* DogModel+CoreDataClass.swift in Sources */,
+				DD83DC2C23180936005DDDA4 /* SubBreedModel+CoreDataProperties.swift in Sources */,
 				DDE68EE62300833A0091C90A /* InfoTableCollectionCell.swift in Sources */,
 				DDE68EF2230434E90091C90A /* ImageListView.swift in Sources */,
+				DD83DC2D23180936005DDDA4 /* DogModel+CoreDataProperties.swift in Sources */,
 				DDBAD14222F8663D00BCCC81 /* StatementViewController.swift in Sources */,
 				DD16806D22FB496000F6F10A /* DogPool.swift in Sources */,
+				DD83DC2E23180936005DDDA4 /* SubBreedModel+CoreDataClass.swift in Sources */,
 				F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */,
 				DD16806B22FB3BE200F6F10A /* Dog.swift in Sources */,
 				DDE68EDD23004AAF0091C90A /* InfoTableViewController.swift in Sources */,
 				DDE68F19230AD3830091C90A /* SubBreed.swift in Sources */,
+				DDEDEDD6231FA3CF00DD3B3B /* TimelineCellViewModel.swift in Sources */,
+				DDEDEDDB2321195000DD3B3B /* DogCellViewModel.swift in Sources */,
 				DDE68EE923014CA40091C90A /* FullScreenImageViewController.swift in Sources */,
 				DD16805E22FB0C2700F6F10A /* DogCell.swift in Sources */,
 				DDBAD11B22F7651000BCCC81 /* AnswerButton.swift in Sources */,
@@ -408,8 +765,9 @@
 				DDE68EF02302DFF80091C90A /* InfoTableView.swift in Sources */,
 				DDE68F17230AC3A20091C90A /* AllDogsResponse.swift in Sources */,
 				DDE68EE3230061D50091C90A /* DogInfoCell.swift in Sources */,
-				DDBAD15522F9B30900BCCC81 /* ImageType.swift in Sources */,
+				DD83DC112317BFF6005DDDA4 /* DoggohStarter.xcdatamodeld in Sources */,
 				DD16808F22FC5CB300F6F10A /* TimelineViewController.swift in Sources */,
+				DDEDEDDD23211BAD00DD3B3B /* DogTableViewModel.swift in Sources */,
 				DDBAD14C22F8771500BCCC81 /* QuizCoordinator.swift in Sources */,
 				DD16809322FC5D6D00F6F10A /* TimelineCollectionViewCell.swift in Sources */,
 				DDBAD14D22F8778000BCCC81 /* ResultViewController.swift in Sources */,
@@ -418,7 +776,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DDE68FAC230FF6C10091C90A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDE68FA0230FF6C00091C90A /* TodayDoggie */;
+			targetProxy = DDE68FAB230FF6C10091C90A /* PBXContainerItemProxy */;
+		};
+		DDEDEDE823223F7800DD3B3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F61DD2AB22F3926700B31D4A /* Doggoh-Starter */;
+			targetProxy = DDEDEDE723223F7800DD3B3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		DDE68FA7230FF6C10091C90A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE68FA8230FF6C10091C90A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		F61DD2B322F3926700B31D4A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,6 +817,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DDE68FAF230FF6C10091C90A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayDoggie/TodayDoggie.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BTFUCZRXWP;
+				INFOPLIST_FILE = TodayDoggie/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.internship.Doggoh-Starter.TodayDoggie";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDE68FB0230FF6C10091C90A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayDoggie/TodayDoggie.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BTFUCZRXWP;
+				INFOPLIST_FILE = TodayDoggie/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.internship.Doggoh-Starter.TodayDoggie";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDEDEDE923223F7800DD3B3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Doggoh-StarterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Robert.Doggoh-StarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doggoh-Starter.app/Doggoh-Starter";
+			};
+			name = Debug;
+		};
+		DDEDEDEA23223F7800DD3B3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Doggoh-StarterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Robert.Doggoh-StarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doggoh-Starter.app/Doggoh-Starter";
+			};
+			name = Release;
+		};
 		F61DD2BC22F3926900B31D4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -556,8 +1013,11 @@
 		};
 		F61DD2BF22F3926900B31D4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8644C50EE8D692A700C07C83 /* Pods-Doggoh-Starter.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Doggoh-Starter/Doggoh-Starter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTFUCZRXWP;
 				INFOPLIST_FILE = "Doggoh-Starter/Info.plist";
@@ -574,8 +1034,11 @@
 		};
 		F61DD2C022F3926900B31D4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FC947AAF9DEA78D813B8860 /* Pods-Doggoh-Starter.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Doggoh-Starter/Doggoh-Starter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTFUCZRXWP;
 				INFOPLIST_FILE = "Doggoh-Starter/Info.plist";
@@ -593,6 +1056,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DDE68FAE230FF6C10091C90A /* Build configuration list for PBXNativeTarget "TodayDoggie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDE68FAF230FF6C10091C90A /* Debug */,
+				DDE68FB0230FF6C10091C90A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEDEDEB23223F7800DD3B3B /* Build configuration list for PBXNativeTarget "Doggoh-StarterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEDEDE923223F7800DD3B3B /* Debug */,
+				DDEDEDEA23223F7800DD3B3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F61DD2A722F3926700B31D4A /* Build configuration list for PBXProject "Doggoh-Starter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -612,6 +1093,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD83DC0F2317BFF6005DDDA4 /* DoggohStarter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD83DC102317BFF6005DDDA4 /* DoggohStarter.xcdatamodel */,
+			);
+			currentVersion = DD83DC102317BFF6005DDDA4 /* DoggohStarter.xcdatamodel */;
+			path = DoggohStarter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F61DD2A422F3926700B31D4A /* Project object */;
 }

@@ -23,6 +23,8 @@ class DogProfileViewController: UIViewController {
     @IBOutlet var genderButtons: [AnswerButton]!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let alamoNetwork = NetworkWithAlamo.shared
+    
     private let charButtonName: [String] = ["QUIET", "CHERFUL", "ACTIVE", "PLAYFUL", "LOUD", "CURIOUS", "VEARY PEACEFUL", "FRIENDLY"]
     private var charButtonCounter = 0
     //dict to see which character button is selected
@@ -34,7 +36,7 @@ class DogProfileViewController: UIViewController {
     private var allDogs: [Dog] = [Dog]()
     
     private var counterPicker: Int = 0
-    private var selectedRow: Dog = Dog(dogRace: "Wilkinson", dogs: [])
+    private var selectedDog: Dog = Dog(dogRace: "Wilkinson", dogs: [])
     var dogBeforeCancel: Dog?
     
     override func viewDidLoad() {
@@ -86,7 +88,7 @@ class DogProfileViewController: UIViewController {
         if counterPicker == 0 {
             let pickerHeight: CGFloat = 250
             let toolBarHeight: CGFloat = 40
-            dogBeforeCancel = selectedRow
+            dogBeforeCancel = selectedDog
             
             myView = UIView(frame: CGRect(x: 0 , y: view.bounds.height - pickerHeight, width: view.bounds.width, height: pickerHeight))
             myView.backgroundColor = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
@@ -121,11 +123,26 @@ class DogProfileViewController: UIViewController {
     }
     
     @objc func doneBtnClicked() {
-        selectionButton.setTitle(selectedRow.breed, for: .normal)
-        profileImage.image = selectedRow.dogImage
-        breedNameLabel.text = selectedRow.breed
+        selectionButton.setTitle(selectedDog.breed, for: .normal)
+//        profileImage.image = selectedDog.dogImage
+        
+        alamoNetwork.getImageByBreed(breedName: selectedDog.breed) { result in
+            switch result {
+            case .success(let imageObject):
+                let imageUrl = imageObject.imageURL
+                let data = try? Data(contentsOf: URL(string: imageUrl)!)
+                if let data = data {
+                    let newProfileImg = UIImage(data: data)
+                    self.profileImage.image = newProfileImg
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    
+        breedNameLabel.text = selectedDog.breed
         breedNameLabel.alpha = 1
-        infoLabel.text = "Some info on \(selectedRow.breed)"
+        infoLabel.text = "Some info on \(selectedDog.breed)"
         myView.removeFromSuperview()
         counterPicker = 0
         
@@ -158,8 +175,8 @@ class DogProfileViewController: UIViewController {
 
 extension DogProfileViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("Component = \(component) --- row = \(row)")
-        selectedRow = allDogs[row]
+//        print("Component = \(component) --- row = \(row)")
+        selectedDog = allDogs[row]
         breedNameLabel.text = allDogs[row].breed
         breedNameLabel.alpha = 0.5
     }

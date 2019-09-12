@@ -37,6 +37,12 @@ class StatementViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configure()
+        update(withStatement: statement, atIndex: itemIndex, inTotatl: totalItems)
+    }
+
+    
     @IBAction func optionClicked(_ sender: UIButton) {
         nextQuestionBtn.isEnabled = true
         nextQuestionBtn.backgroundColor = UIColor.init(red: 241/255, green: 89/255, blue: 32/255, alpha: 1)
@@ -56,11 +62,6 @@ class StatementViewController: UIViewController {
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
         delegate?.userDidAnswerQuestion(atIndex: itemIndex, withCorrectAnswer: evaluate(statement: statement, answer: answerChosed))
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        configure()
-        update(withStatement: statement, atIndex: itemIndex, inTotatl: totalItems)
     }
     
     func configure() {

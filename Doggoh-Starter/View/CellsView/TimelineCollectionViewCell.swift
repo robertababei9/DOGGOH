@@ -20,6 +20,19 @@ class TimelineCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var viewModel: TimelineCellViewModel! {
+        didSet {
+            dogNameLabel.text = viewModel.dogName
+            if let dogImageData = viewModel.dogImageData {
+                dogImageView.image = UIImage(data: dogImageData)
+            }
+            else {
+                dogImageView.image = UIImage(named: "no_image")
+                
+            }
+        }
+    }
+    
     func setDogImage(dogImage: UIImage) {
         dogImageView.image = dogImage
     }

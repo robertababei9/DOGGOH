@@ -124,6 +124,82 @@ class DogAPIClient {
         }
     }
     
+    func getImageDataByBreed(breedName: String, completion: @escaping (Data) -> Void ) {
+        let url = URL(string: "\(baseURL)\(DogAPI.randomBreedImage(breedName).endpoint)")!
+        let networkmanager = NetworkManager(url: url)
+        networkmanager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                print("\n\n\n", error)
+            case .success(let data):
+                do {
+                    let image = try JSONDecoder().decode(DogImageURL.self, from: data)
+                    //TODO: some imageUrls have spaces .... solve this
+                    let imageUrl = image.imageURL
+                    let dataImage = try Data(contentsOf: URL(string: imageUrl)!)
+                    
+                    DispatchQueue.main.async {
+                        completion(dataImage)
+                    }
+                }
+                catch {
+                    print("\n\n\n", error)
+                }
+            }
+        }
+    }
+    
+    func getImageDataBySubBreed(breedName: String, subBreedName: String, completion: @escaping (Data) -> Void) {
+        let url = URL(string: "\(baseURL)\(DogAPI.randomSubbreedImage(breedName, subBreedName).endpoint)")!
+        let networkmanager = NetworkManager(url: url)
+        networkmanager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                print("\n\n\n", error)
+            case .success(let data):
+                do {
+                    let image = try JSONDecoder().decode(DogImageURL.self, from: data)
+                    //TODO: some imageUrls have spaces .... solve this
+                    let imageUrl = image.imageURL
+                    let dataImage = try Data(contentsOf: URL(string: imageUrl)!)
+                    
+                    DispatchQueue.main.async {
+                        completion(dataImage)
+                    }
+                }
+                catch {
+                    print("\n\n\n", error)
+                }
+            }
+        }
+    }
+    
+    func getAllDogs_v2(_ completion: @escaping ([Dog])-> Void) {
+        var dogsFromURL = [Dog]()
+        let url = URL(string: "\(baseURL)\(DogAPI.allDogs.endpoint)")!
+        let networkManager = NetworkManager(url: url)
+        networkManager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                dogsFromURL = [Dog]()
+            case .success(let data):
+                do {
+                    let allDogs = try JSONDecoder().decode(AllDogsResponse.self, from: data)
+                    allDogs.message.forEach({
+                        dogsFromURL.append(Dog(dogRace: $0.key, dogs: $0.value))
+                    })
+                    DispatchQueue.main.async {
+                        completion(dogsFromURL)
+                    }
+                }
+                catch {
+                    print("Error decoding json for allDogs")
+                }
+            }
+        }
+    }
+
+    
     func getImageBySubBreed(breedName: String, subBreedName: String, _ completion: @escaping ((Result<DogImageURL, NetworkError>)-> Void)) {
         let url = URL(string: "\(baseURL)\(DogAPI.randomSubbreedImage(breedName, subBreedName).endpoint)")!
         let networkManager = NetworkManager(url: url)

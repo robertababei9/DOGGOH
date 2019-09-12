@@ -32,7 +32,9 @@ class NetworkManager {
                 }
                 return
             }
-            completion(.success(data))
+            DispatchQueue.global(qos: .background).async {
+                completion(.success(data))
+            }
         }
         
         dataTask.resume()
